@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Presentación - Luis Rivas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 2rem;
+        }
+        .header {
+            text-align: right;
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+        }
+        .company-name {
+            font-style: italic;
+            color: #4b5563;
+            font-weight: 700;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .footer {
+            margin-top: 2rem;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p id="FECHA"></p>
+        </div>
+
+        <p>Estimado equipo de <span id="EMPRESA_NOMBRE_2"></span>,</p>
+
+        <p>
+            Mi nombre es <span id="TU_NOMBRE" class="highlight"></span> y estoy emocionado de presentar mi candidatura para el puesto de <span id="NOMBRE_DEL_PUESTO" class="highlight"></span> en <span id="EMPRESA_NOMBRE_3"></span>. Como <span id="TU_PROFESION" class="highlight"></span> con <span id="ANOS_DE_EXPERIENCIA" class="highlight"></span> años de experiencia en <span id="AREA_DE_EXPERIENCIA" class="highlight"></span>, estoy convencido de que puedo aportar un valor significativo a su equipo.
+        </p>
+
+        <p>
+            Durante mi carrera, he trabajado en proyectos que se alinean perfectamente con la misión de <span id="EMPRESA_NOMBRE_4"></span> de <span id="EMPRESA_MISION"></span>. Algunos de mis logros más destacados incluyen:
+        </p>
+
+        <ul>
+            <li id="LOGRO_1"></li>
+            <li id="LOGRO_2"></li>
+            <li id="LOGRO_3"></li>
+        </ul>
+
+        <p>
+            Me atrae especialmente <span id="EMPRESA_NOMBRE_5"></span> por su <span id="EMPRESA_RAZON_INTERES"></span>. Creo firmemente que mi experiencia en <span id="TUS_HABILIDADES_RELEVANTES" class="highlight"></span> se alinea perfectamente con las necesidades de su empresa y me permitiría contribuir de manera significativa desde el primer día.
+        </p>
+
+        <p>
+            Estoy particularmente interesado en <span id="ASPECTO_ESPECIFICO_DEL_TRABAJO" class="highlight"></span> y cómo podría aplicar mis habilidades en <span id="TUS_HABILIDADES_ESPECIFICAS" class="highlight"></span> para impulsar el éxito en este área.
+        </p>
+
+        <p>
+            Agradezco sinceramente su tiempo y consideración. Estoy entusiasmado con la posibilidad de discutir cómo puedo contribuir al éxito continuo de <span id="EMPRESA_NOMBRE_6"></span>. Por favor, no dude en contactarme si necesita información adicional o para programar una entrevista.
+        </p>
+
+        <div class="footer">
+            <p>Atentamente,</p>
+            <p id="TU_NOMBRE_FIRMA" class="highlight"></p>
+            <p id="TU_EMAIL"></p>
+            <p id="TU_TELEFONO"></p>
+        </div>
+    </div>
+
+    <script>
+        // Datos iniciales basados en el CV de Luis Rivas
+        const datos = {
+            FECHA: new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }),
+            TU_NOMBRE: "Luis Rivas",
+            NOMBRE_DEL_PUESTO: "Front-end Vue Developer",
+            TU_PROFESION: "Ingeniero en informática",
+            ANOS_DE_EXPERIENCIA: "+4",
+            AREA_DE_EXPERIENCIA: "desarrollo Full Stack con especialización en React.js y Node.js",
+            LOGRO_1: "En <span class='company-name'>321ignition</span>, desarrollé una arquitectura Front-end que mejoró la escalabilidad y el rendimiento del sitio web.",
+            LOGRO_2: "Durante mi tiempo en <span class='company-name'>Overfuel</span>, implementé APIs para integrar la aplicación Front-end con microservicios de fondo.",
+            LOGRO_3: "En <span class='company-name'>321ignition</span>, lideré la migración de varias aplicaciones Front-end de Vue.js a Next.js.",
+            TUS_HABILIDADES_RELEVANTES: "Vue.js, React.js, Next.js, Node.js con Express, manejo de servicios en la nube de AWS y Google Cloud",
+            ASPECTO_ESPECIFICO_DEL_TRABAJO: "el desarrollo de nuevas funcionalidades y la optimización del rendimiento",
+            TUS_HABILIDADES_ESPECIFICAS: "Vue.js, Pinia, React.js, Node.js, servicios en la nube de AWS como EC2, S3, DynamoDB y metodologías ágiles",
+            TU_EMAIL: "luisfrm_@outlook.com",
+            TU_TELEFONO: "+58 412-4722407",
+            EMPRESA_NOMBRE: "ALEGRA",
+            EMPRESA_MISION: "innovar en el campo del desarrollo de software",
+            EMPRESA_RAZON_INTERES: "compromiso con la excelencia técnica y la innovación"
+        };
+
+        // Función para actualizar el contenido
+        function actualizarContenido() {
+            for (let [id, valor] of Object.entries(datos)) {
+                const elementos = document.querySelectorAll(`#${id}, #${id}_2, #${id}_3, #${id}_4, #${id}_5, #${id}_6`);
+                elementos.forEach(elemento => {
+                    if (elemento) elemento.innerHTML = valor;
+                });
+            }
+            // Actualizar el nombre en la firma
+            document.getElementById('TU_NOMBRE_FIRMA').textContent = datos.TU_NOMBRE;
+        }
+
+        // Llamar a la función para actualizar el contenido inicial
+        actualizarContenido();
+
+        // Función para actualizar datos específicos
+        function actualizarDatos(nuevosDatos) {
+            Object.assign(datos, nuevosDatos);
+            actualizarContenido();
+        }
+
+        // Ejemplo de cómo actualizar datos (puedes llamar a esta función cuando sea necesario)
+        // actualizarDatos({
+        //     EMPRESA_NOMBRE: "TechInnovate",
+        //     EMPRESA_MISION: "revolucionar la industria del software con soluciones innovadoras",
+        //     EMPRESA_RAZON_INTERES: "enfoque en tecnologías de vanguardia y desarrollo ágil",
+        //     // ... otros campos que quieras actualizar
+        // });
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - Luis Rivas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 1.5rem;
+        }
+        .header {
+            text-align: right;
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .footer {
+            margin-top: 1.5rem;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .company-name {
+            font-style: italic;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p id="DATE"></p>
+        </div>
+
+        <h1>Cover Letter</span></h1>
+
+        <p>Dear Hiring team,</p>
+
+        <p>
+            My name is <span id="YOUR_NAME" class="highlight"></span> and I am excited to submit my application for the position of <span id="POSITION_NAME" class="highlight"></span>. As a <span id="YOUR_PROFESSION" class="highlight"></span> with <span id="YEARS_OF_EXPERIENCE" class="highlight"></span> years of experience in <span id="AREA_OF_EXPERTISE" class="highlight"></span>, I am confident that I can bring significant value to your team.
+        </p>
+
+        <p>
+            Throughout my career, I have worked on projects that align perfectly with the role. Some of my most notable achievements include:
+        </p>
+
+        <ul>
+            <li id="ACHIEVEMENT_1"></li>
+            <li id="ACHIEVEMENT_2"></li>
+            <li id="ACHIEVEMENT_3"></li>
+        </ul>
+
+        <p>
+            I strongly believe that my experience in <span id="YOUR_RELEVANT_SKILLS" class="highlight"></span> aligns perfectly with your company's needs and would allow me to contribute significantly from day one.
+        </p>
+
+        <p>
+            I am especially interested in <span id="SPECIFIC_JOB_ASPECT" class="highlight"></span> and how I could apply my skills in <span id="YOUR_SPECIFIC_SKILLS" class="highlight"></span> to drive success in this area.
+        </p>
+
+        <p>
+           Please do not hesitate to contact me if you need any additional information or to schedule an interview.
+        </p>
+
+        <div class="footer">
+            <p>Sincerely,</p>
+            <p id="YOUR_NAME_SIGNATURE" class="highlight"></p>
+            <p id="YOUR_EMAIL"></p>
+            <p id="YOUR_PHONE"></p>
+        </div>
+    </div>
+
+    <script>
+        // Initial data based on Luis Rivas' CV
+        const data = {
+            DATE: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+            YOUR_NAME: "Luis Rivas",
+            POSITION_NAME: "React Developer",
+            YOUR_PROFESSION: "Computer Engineer",
+            YEARS_OF_EXPERIENCE: "4",
+            AREA_OF_EXPERTISE: "Full Stack development with specialization in React.js, Next.js, Vue.js, and Node.js",
+            ACHIEVEMENT_1: "At <span class='company-name'>321ignition</span>, I developed a Front-end architecture that improved the scalability and performance of the website.",
+            ACHIEVEMENT_2: "During my time at <span class='company-name'>Overfuel</span>, I implemented APIs to integrate the Front-end application with back-end microservices.",
+            ACHIEVEMENT_3: "At <span class='company-name'>321ignition</span>, I led the migration of several Front-end applications from React.js to Next.js.",
+            YOUR_RELEVANT_SKILLS: "React.js",
+            SPECIFIC_JOB_ASPECT: "developing new features and optimizing performance",
+            YOUR_SPECIFIC_SKILLS: "React.js, Vue.js, Node.js, and agile methodologies",
+            YOUR_EMAIL: "luisfrm_@outlook.com",
+            YOUR_PHONE: "+58 412-4722407",
+            COMPANY_NAME: "[Company Name]",
+            COMPANY_MISSION: "innovate in the field of software development",
+            COMPANY_INTEREST_REASON: "commitment to technical excellence and innovation"
+        };
+
+        // Function to update content
+        function updateContent() {
+            for (let [id, value] of Object.entries(data)) {
+                const elements = document.querySelectorAll(`#${id}, #${id}_2, #${id}_3, #${id}_4, #${id}_5, #${id}_6`);
+                elements.forEach(element => {
+                    if (element) element.innerHTML = value;
+                });
+            }
+            // Update the name in the signature
+            document.getElementById('YOUR_NAME_SIGNATURE').textContent = data.YOUR_NAME;
+        }
+
+        // Call the function to update initial content
+        updateContent();
+
+        // Function to update specific data
+        function updateData(newData) {
+            Object.assign(data, newData);
+            updateContent();
+        }
+
+        // Example of how to update data (you can call this function when necessary)
+        // updateData({
+        //     COMPANY_NAME: "TechInnovate",
+        //     COMPANY_MISSION: "revolutionize the software industry with innovative solutions",
+        //     COMPANY_INTEREST_REASON: "focus on cutting-edge technologies and agile development",
+        //     // ... other fields you want to update
+        // });
+    </script>
+</body>
+</html>
