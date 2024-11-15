@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "html-to-pdf.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "convert-pdf": "node ./html-to-pdf cover-letter-en",
+    "convert-pdf:es": "node ./html-to-pdf cover-letter-es"
   },
   "keywords": [],
   "author": "",

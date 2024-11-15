@@ -5,7 +5,7 @@
 /tmp
 /out-tsc
 
-/html-to-pdf/pdf
+/html-to-pdf/pdf/*.pdf
 
 # Runtime data
 pids
